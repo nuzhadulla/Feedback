@@ -99,6 +99,8 @@ Type error: Property 'font' does not exist on type 'NextFont'.
 In newer versions of Next.js, when you import a font using `next/font`, it returns an object with a `className` property instead of a `font` property.
 This `className` contains the necessary CSS classes to apply the font to your elements.
 
+### Added .gitignore so that we ignore node_module. This was causing problems. 
+
 
 
 
