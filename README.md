@@ -72,3 +72,35 @@ This Website Feedback project was chosen for several compelling reasons:
 By choosing this Website Feedback project, we've created a resource that not only solves a common web development need but also serves as a showcase for modern web development practices and technologies.
 
 
+## Changes made to this codebase 
+
+### Fixed the old versions of Next, and React 
+
+```bash 
+npm cache clean --force
+rm -rf node_modules package-lock.json
+npm install
+npx @next/codemod@latest upgrade
+npm i next@latest react@latest react-dom@latest eslint-config-next
+```
+
+### Code fix on layout.tsx 19:30 
+./app/layout.tsx:19:30
+Type error: Property 'font' does not exist on type 'NextFont'.
+
+  17 |   return (
+  18 |     <html lang="en">
+> 19 |       <body className={inter.font}>{children}</body>
+     |                              ^
+  20 |     </html>
+  21 |   )
+  22 | }
+
+In newer versions of Next.js, when you import a font using `next/font`, it returns an object with a `className` property instead of a `font` property.
+This `className` contains the necessary CSS classes to apply the font to your elements.
+
+### Added .gitignore so that we ignore node_module. This was causing problems. 
+
+
+
+
